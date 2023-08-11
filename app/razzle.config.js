@@ -21,10 +21,22 @@ module.exports = {
 
         // add the map_styles directory to the build output
         const plugins = webpackConfig.plugins || [];
-        plugins.push(new CopyPlugin({
-            patterns: [ {from: 'map_styles', to: 'map_styles'}]
+        
+        // Create a copy of webpackConfig.plugins to prevent modifying the original array directly
+        const newPlugins = [...plugins];
+
+        // Add the problematic file exclusion to the TerserPlugin configuration
+        newPlugins.forEach(plugin => {
+            if (plugin.constructor.name === 'TerserPlugin') {
+                plugin.options.exclude = /TransWithoutContext\.js$/;
+            }
+        });
+
+        newPlugins.push(new CopyPlugin({
+            patterns: [{ from: 'map_styles', to: 'map_styles' }]
         }));
-        webpackConfig.plugins = plugins;
+
+        webpackConfig.plugins = newPlugins;
 
         return webpackConfig;
     },
