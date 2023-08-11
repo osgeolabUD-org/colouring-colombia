@@ -10,5 +10,7 @@ export function getTileLayerUrl<T extends MapTileset = MapTileset>(tileset: T, p
     let paramString = parameters && new URLSearchParams(parameters).toString();
     paramString = paramString == undefined ? '' : `?${paramString}`;
 
+    console.log(`/tiles/${tileset}/{z}/{x}/{y}{r}.png${paramString}`);
+
     return `/tiles/${tileset}/{z}/{x}/{y}{r}.png${paramString}`;
 }

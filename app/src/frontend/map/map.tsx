@@ -89,7 +89,7 @@ export const ColouringMap : FC<ColouringMapProps> = ({
             <MapContainer
                 center={initialMapViewport.position}
                 zoom={initialMapViewport.zoom}
-                minZoom={9}
+                minZoom={1}
                 maxZoom={18}
                 doubleClickZoom={false}
                 zoomControl={false}
@@ -102,7 +102,7 @@ export const ColouringMap : FC<ColouringMapProps> = ({
                 <Pane
                     key={darkLightTheme}
                     name={'cc-base-pane'}
-                    style={{zIndex: 50}}
+                    style={{zIndex: 180}}
                 >
                     <CityBaseMapLayer theme={darkLightTheme} />
                     <BuildingBaseLayer theme={darkLightTheme} />
