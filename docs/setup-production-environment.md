@@ -50,7 +50,7 @@ La versión 22.04 viene con Python 3 preinstalado, sin embargo es necesario inst
 
 Crear un usuario del sistema (`nodeapp`) para que sea propietario de la carpeta colouring-colombia
 
-`useradd -r -s /usr/sbin/nologin nodeapp`
+`sudo useradd -r -s /usr/sbin/nologin nodeapp`
 
 Añadir el usuario actual al grupo `nodeapp`
 
@@ -69,24 +69,6 @@ Nota: Para que los cambios tengan efecto debe reiniciar la sesión de trabajo de
 
 
 ### Instalar Node. 
-
-Primero definir un par de variables de entorno:
-
-`NODE_VERSION=v12.14.1`
-
-`DISTRO=linux-x64`
-
-Obtener la distribución de Node e instalarla
-
-`wget -nc https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-$DISTRO.tar.xz`
-
-`sudo mkdir /usr/local/lib/node`
-
-`sudo tar xf node-$NODE_VERSION-$DISTRO.tar.xz -C /usr/local/lib/node`
-
-`sudo mv /usr/local/lib/node/node-$NODE_VERSION-$DISTRO /usr/local/lib/node/node-$NODE_VERSION`
-
-`rm node-$NODE_VERSION-$DISTRO.tar.xz`
 
 #### Agregar las variables de entorno
 
@@ -116,7 +98,20 @@ Guardar el archivo (ctrl+x, ingresar Y y enter)
 
 `source ~/.profile`
 
-***
+#### Agregar Node al sistema
+
+Obtener la distribución de Node e instalarla
+
+`wget -nc https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-$DISTRO.tar.xz`
+
+`sudo mkdir /usr/local/lib/node`
+
+`sudo tar xf node-$NODE_VERSION-$DISTRO.tar.xz -C /usr/local/lib/node`
+
+`sudo mv /usr/local/lib/node/node-$NODE_VERSION-$DISTRO /usr/local/lib/node/node-$NODE_VERSION`
+
+`rm node-$NODE_VERSION-$DISTRO.tar.xz`
+
 #### Configurar Node
 
 Ahora actualizar el gestor de paquetes `npm` a la versión más reciente con privilegios globales y compatible con la versión de Node.js instalada. Esto necesita ser realizado como usuario root, por lo que es necesario exportar las variables de node al perfil de usuario root.
@@ -146,7 +141,7 @@ echo "host    all             all             all                     md5" | sud
 
 Para producción no queremos usar nuestro nombre de usuario de Ubuntu como el nombre de usuario de Postgres. Por lo tanto, necesitamos reemplazar la autenticación de pares con la autenticación de contraseña para las conexiones locales. 
 
-`sudo sed -i 's/^local.*all.*all.*peer$/local   all             all                                     md5/' /etc/postgresql/10/main/pg_hba.conf`
+`sudo sed -i 's/^local.*all.*all.*peer$/local   all             all                                     md5/' /etc/postgresql/14/main/pg_hba.conf`
 
 
 Reiniciar Postgres para que los cambios de configuración surtan efecto
@@ -155,12 +150,13 @@ Reiniciar Postgres para que los cambios de configuración surtan efecto
 sudo service postgresql restart
 ```
 
-Crear un usuario de Postgres
+#### Crear un usuario de Postgres
 
 ```bash
 sudo -u postgres psql -c "SELECT 1 FROM pg_user WHERE usename = '<nombre_de_usuario_postgres>';" | grep -q 1 || sudo -u postgres psql -c "CREATE ROLE <nombre_de_usuario_postgres> SUPERUSER LOGIN PASSWORD '<contraseña_postgres>';"
 ```
-Crea la base de datos predeterminada de colouring cities
+
+#### Crear la base de datos predeterminada de colouring cities
 
 ```bash
 sudo -u postgres psql -c "SELECT 1 FROM pg_database WHERE datname = 'colouringcitiesdb';" | grep -q 1 || sudo -u postgres createdb -E UTF8 -T template0 --locale=en_US.utf8 -O colouring colouringcitiesdb
