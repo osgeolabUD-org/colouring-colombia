@@ -9,6 +9,8 @@ import {getTileLayerUrl } from './get-tile-layer-url';
 export function BuildingBaseLayerAllZoom({ theme }: {theme: MapTheme}) {
     const tileset = `base_${theme}` as const;
 
+    console.log(getTileLayerUrl(tileset));
+
     return <TileLayer
                 key={theme} /* needed because TileLayer url is not mutable in react-leaflet v3 */
                 url={getTileLayerUrl(tileset)}
