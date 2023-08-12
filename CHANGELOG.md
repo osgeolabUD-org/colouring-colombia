@@ -2,6 +2,16 @@
 
 Todos los cambios realizados por el equipo de Colouring Colombia se documentan en este archivo. El objetivo es tener un registro completo de los cambios que deben realizarse a partir de un fork para obtener las adaptaciones en idioma, formato y funcionalidad específica de Colouring Colombia
 
+## [0.0.14]
+
+### Changed
+
+    - Se modifica el archivo rendererDefinition.tsx para definir el bbox de Colombia
+    - Se modifica el archivo map.tsx para definir el zoom mínimo y máximo
+    - Se modifica el archivo boroughs.json para incluir las geometrías de las localidades de Bogotá
+    - Se modifica el archivo boundary-detailed.geojson para incluir las geometrías de las localidades de Bogotá
+
+
 ## [0.0.13] - 2023-07-23
 
 ### Added
