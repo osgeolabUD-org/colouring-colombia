@@ -23,7 +23,9 @@ const STITCH_THRESHOLD = 12;
  * Hard-code extent so we can short-circuit rendering and return empty/transparent tiles outside the area of interest
  * bbox in CRS epsg:3857 in form: [w, s, e, n]
  */
-const EXTENT_BBOX: BoundingBox = [-61149.622628, 6667754.851372, 37183, 6744803.375884];
+//const EXTENT_BBOX: BoundingBox = [-61149.622628, 6667754.851372, 37183, 6744803.375884];
+
+const EXTENT_BBOX: BoundingBox = [-8820000, -480000, -7435000, 1700000];
 
 const allLayersCacheSwitch = parseBooleanExact(process.env.CACHE_TILES) ?? true;
 const dataLayersCacheSwitch = parseBooleanExact(process.env.CACHE_DATA_TILES) ?? true;
