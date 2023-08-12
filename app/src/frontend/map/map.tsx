@@ -89,8 +89,8 @@ export const ColouringMap : FC<ColouringMapProps> = ({
             <MapContainer
                 center={initialMapViewport.position}
                 zoom={initialMapViewport.zoom}
-                minZoom={1}
-                maxZoom={18}
+                minZoom={10}
+                maxZoom={20}
                 doubleClickZoom={false}
                 zoomControl={false}
                 attributionControl={false}

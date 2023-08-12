@@ -25,9 +25,9 @@ export function CityBaseMapLayer({ theme }: { theme: MapTheme }) {
     const theme_class = theme === 'light' ? "light-theme" : "night-theme";    
 
     // osm: Open Street Map
-    const baseUrl = `https://tile.openstreetmap.org/{z}/{x}/{y}.png`;
+    //const baseUrl = `https://tile.openstreetmap.org/{z}/{x}/{y}.png`;
 
-    //const baseUrl = `https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/Mapa_Referencia/mapa_base_3857/MapServer/tile/{z}/{y}/{x}`;
+    const baseUrl = `https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/Mapa_Referencia/mapa_base_3857/MapServer/tile/{z}/{y}/{x}`;
     
     const attribution = `Building attribute data is © Colouring Cities contributors. Maps contain OS data © Crown copyright: OS Maps baselayers and building outlines. <a href=/ordnance-survey-licence.html>OS licence</a>`;
 

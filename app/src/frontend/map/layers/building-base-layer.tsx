@@ -12,7 +12,7 @@ export function BuildingBaseLayer({ theme }: {theme: MapTheme}) {
     return <TileLayer
                 key={theme} /* needed because TileLayer url is not mutable in react-leaflet v3 */
                 url={getTileLayerUrl(tileset)}
-                minZoom={14}
+                minZoom={12}
                 maxZoom={20}
                 detectRetina={false}
             />;
