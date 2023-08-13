@@ -84,7 +84,6 @@ Se realizan los cambios de la configuración general del aplicativo en el archiv
     - Commit 0.1: Se modifica etl para crear geometrias de construcciones
     - Commit 0.1: Consultas crear geometrias y building records
     - Se modifican las geometrias de conservation, boundary, boroughs, flood zonaes, housing zones segun lo descrito en el pot 2021
-    - Traducciones menú Colouring Bogota.
     
 
 
