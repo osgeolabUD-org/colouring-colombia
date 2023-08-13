@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import {t} from'i18next';
 import { useAuth } from '../auth-context';
 import ErrorBox from '../components/error-box';
 import { SpinnerIcon } from '../components/icons';
@@ -26,28 +26,28 @@ export const Login: React.FC = () => {
         login({ username, password }, setError);
     }, [username, password]);
 
-    const msgText = `Welcome to Colouring ${config.cityName}. You're one of the first people to use the site!`;
+    const msgText = t('Welcome to Colouring') + ' ' + config.cityName + '. ' + t("You're one of the first people to use the site!");
+    ;
 
     return (
         <article>
             <section className="main-col">
-                <h1 className="h2">Log in</h1>
+                <h1 className="h2">{t("Log in")}</h1>
                 <InfoBox msg={msgText}>
-                    <br/>Please <a href="https://discuss.colouring.london/">discuss
-                    suggestions for improvements</a> and <a
+                    <br/>{t('Please')} <a href="https://discuss.colouring.london/" >{t('discuss suggestions for improvements')}</a> {t('and')} <a
                         href="https://github.com/colouring-cities/colouring-core/issues">
-                    report issues or problems</a>.
+                    {t('report issues or problems')}</a>.
                 </InfoBox>
                 <ErrorBox msg={error} />
                 <form onSubmit={onSubmit}>
-                    <label htmlFor="username">Username*</label>
+                    <label htmlFor="username">{t('Username*')}</label>
                     <input name="username" id="username"
                         className="form-control" type="text"
                         value={username} onChange={e => setUsername(e.target.value)}
-                        placeholder="please note the user name you choose will be public" required
+                        placeholder={t("please note the user name you choose will be public")} required
                     />
 
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">{t('Password')}</label>
                     <input name="password" id="password"
                         className="form-control"
                         type={showPassword ? 'text' : 'password'}
@@ -61,20 +61,20 @@ export const Login: React.FC = () => {
                             checked={showPassword}
                             onChange={e => setShowPassword(e.target.checked)}
                         />
-                        <label htmlFor="show_password" className="form-check-label">Show password?</label>
+                        <label htmlFor="show_password" className="form-check-label">{t('Show password?')}</label>
                     </div>
 
-                    <Link to="/forgotten-password.html">Forgotten password?</Link>
+                    <Link to="/forgotten-password.html">{t('Forgotten password?')}</Link>
 
                     <div className="buttons-container with-space">
-                        <input type="submit" disabled={isLoading} value="Log In" className="btn btn-primary" />
-                        {isLoading && <span><SpinnerIcon />Logging in...</span>}
+                        <input type="submit" disabled={isLoading} value={t("Log In")} className="btn btn-primary" />
+                        {isLoading && <span><SpinnerIcon />{t('Logging in...')}</span>}
                     </div>
 
-                    Would you like to create an account instead?
+                    {t('Would you like to create an account instead?')}
 
                     <div className="buttons-container with-space">
-                        <Link to="sign-up.html" className="btn btn-outline-dark">Sign Up</Link>
+                        <Link to="sign-up.html" className="btn btn-outline-dark">{t('Sign Up')}</Link>
                     </div>
                 </form>
             </section>
