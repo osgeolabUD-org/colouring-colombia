@@ -138,7 +138,7 @@ const AgeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     slug=""
                     value=""
                     mode='view'
-                    tooltip='Coming Soon'
+                    tooltip={t('Coming Soon')}
                 />
             </DataEntryGroup>
             <DataEntryGroup name={t("Cladding, extensions and retrofits")}>

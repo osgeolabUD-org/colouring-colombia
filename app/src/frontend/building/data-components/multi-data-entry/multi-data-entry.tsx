@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import './multi-data-entry.css';
 
+import { t } from 'i18next';
 import { BaseDataEntryProps } from '../data-entry';
 import { DataEntryInput, TextDataEntryInputProps } from '../data-entry-input';
 import { DataTitleCopyable } from '../data-title';
@@ -72,7 +73,7 @@ export const MultiDataEntry: React.FC<MultiDataEntryProps> = ({
         {
             values.length === 0 && !isEditing &&
             <div className="input-group">
-                <input className="form-control no-entries" type="text" value="No entries" disabled={true} />
+                <input className="form-control no-entries" type="text" value={t("No entries")} disabled={true} />
             </div>
         }
         <ul className="data-entry-list">

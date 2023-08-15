@@ -130,8 +130,8 @@ const TeamView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     options={dataFields.landowner_source_type.items}
                     placeholder={t(dataFields.landowner_source_type.example)}
                     />
-                {(props.building.landowner_source_type == commonSourceTypes[0] ||
-                    props.building.landowner_source_type == commonSourceTypes[1] ||
+                {(props.building.landowner_source_type == t(commonSourceTypes[0]) ||
+                    props.building.landowner_source_type == t(commonSourceTypes[1]) ||
                     props.building.landowner_source_type == null) ? <></> :
                     <>
                         <MultiDataEntry
@@ -210,8 +210,8 @@ const TeamView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     options={dataFields.developer_source_type.items}
                     placeholder={t(dataFields.developer_source_type.example)}
                     />
-                {(props.building.developer_source_type == commonSourceTypes[0] ||
-                    props.building.developer_source_type == commonSourceTypes[1] ||
+                {(props.building.developer_source_type == t(commonSourceTypes[0]) ||
+                    props.building.developer_source_type == t(commonSourceTypes[1]) ||
                     props.building.developer_source_type == null) ? <></> :
                     <>
                         <MultiDataEntry
@@ -290,8 +290,8 @@ const TeamView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     options={dataFields.designers_source_type.items}
                     placeholder={t(dataFields.designers_source_type.example)}
                     />
-                {(props.building.designers_source_type == commonSourceTypes[0] ||
-                    props.building.designers_source_type == commonSourceTypes[1] ||
+                {(props.building.designers_source_type == t(commonSourceTypes[0]) ||
+                    props.building.designers_source_type == t(commonSourceTypes[1]) ||
                     props.building.designers_source_type == null) ? <></> :
                     <>
                         <MultiDataEntry
@@ -353,8 +353,8 @@ const TeamView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     options={dataFields.builder_source_type.items}
                     placeholder={t(dataFields.builder_source_type.example)}
                     />
-                {(props.building.builder_source_type == commonSourceTypes[0] ||
-                    props.building.builder_source_type == commonSourceTypes[1] ||
+                {(props.building.builder_source_type == t(commonSourceTypes[0]) ||
+                    props.building.builder_source_type == t(commonSourceTypes[1]) ||
                     props.building.builder_source_type == null) ? <></> :
                     <>
                         <MultiDataEntry
