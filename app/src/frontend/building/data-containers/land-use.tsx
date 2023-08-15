@@ -45,7 +45,7 @@ const UseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     <SelectDataEntry
                         title={t(dataFields.is_domestic.title)}
                         slug="is_domestic"
-                        value={t(props.building.is_domestic)}
+                        value={props.building.is_domestic}
                         options={dataFields.is_domestic.items}
                         mode={props.mode}
                         copy={props.copy}
