@@ -170,12 +170,12 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     placeholder={dataFields.location_address_source.example}
                     options={dataFields.location_address_source.items}
                     />
-                {(props.building.location_address_source == commonSourceTypes[0] ||
-                    props.building.location_address_source == commonSourceTypes[1] ||
+                {(props.building.location_address_source == t(t(commonSourceTypes[0])) ||
+                    props.building.location_address_source == t(t(commonSourceTypes[1])) ||
                     props.building.location_address_source == null) ? <></> :
                     <>
                         <MultiDataEntry
-                            title={dataFields.location_address_links.title}
+                            title={t(dataFields.location_address_links.title)}
                             slug="location_address_links"
                             value={props.building.location_address_links}
                             mode={props.mode}
@@ -271,7 +271,7 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     title={t(dataFields.location_longitude.title)}
                     slug="location_longitude"
                     value={props.building.location_longitude}
-                    tooltip={t(dataFields.location_latitude.tooltip)}
+                    tooltip={t(dataFields.location_longitude.tooltip)}
                     mode={props.mode}
                     copy={props.copy}
                     step={0.00001}
@@ -299,8 +299,8 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     placeholder={dataFields.location_coordinates_source.example}
                     options={dataFields.location_coordinates_source.items}
                     />
-                {(props.building.location_coordinates_source == commonSourceTypes[0] ||
-                    props.building.location_coordinates_source == commonSourceTypes[1] ||
+                {(props.building.location_coordinates_source == t(t(commonSourceTypes[0])) ||
+                    props.building.location_coordinates_source == t(t(commonSourceTypes[1])) ||
                     props.building.location_coordinates_source == null) ? <></> :
                     <>
                         <MultiDataEntry

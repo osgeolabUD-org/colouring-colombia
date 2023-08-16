@@ -81,6 +81,10 @@ Se realizan los cambios de la configuración general del aplicativo en el archiv
     - Se modifica el archivo search-box.tsx
     - Se modifica el archivo header.tsx
     - Se modifica el archivo welcome.tsx
+    - Commit 0.1: Se modifica etl para crear geometrias de construcciones
+    - Commit 0.1: Consultas crear geometrias y building records
+    - Se modifican las geometrias de conservation, boundary, boroughs, flood zonaes, housing zones segun lo descrito en el pot 2021
+    
 
 
 

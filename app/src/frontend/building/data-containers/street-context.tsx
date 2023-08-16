@@ -79,8 +79,8 @@ const StreetContextView: React.FunctionComponent<CategoryViewProps> = (props) =>
                 placeholder={t(dataFields.context_garden_source_type.example)}
                 options={dataFields.context_garden_source_type.items}
                 />
-            {(props.building.context_garden_source_type == commonSourceTypes[0] ||
-                props.building.context_garden_source_type == commonSourceTypes[1] ||
+            {(props.building.context_garden_source_type == t(commonSourceTypes[0]) ||
+                props.building.context_garden_source_type == t(commonSourceTypes[1]) ||
                 props.building.context_garden_source_type == null) ? <></> :
                 <>
                     <MultiDataEntry
@@ -127,8 +127,8 @@ const StreetContextView: React.FunctionComponent<CategoryViewProps> = (props) =>
                 onChange={props.onChange}
                 tooltip={t(dataFields.context_green_space_distance_source_type.tooltip)}
             />
-            {(props.building.context_green_space_distance_source_type == commonSourceTypes[0] ||
-                props.building.context_green_space_distance_source_type == commonSourceTypes[1] ||
+            {(props.building.context_green_space_distance_source_type == t(commonSourceTypes[0]) ||
+                props.building.context_green_space_distance_source_type == t(commonSourceTypes[1]) ||
                 props.building.context_green_space_distance_source_type == null) ? <></> :
                 <><MultiDataEntry
                     title={t(dataFields.context_green_space_distance_source_links.title)}
@@ -174,8 +174,8 @@ const StreetContextView: React.FunctionComponent<CategoryViewProps> = (props) =>
                 onChange={props.onChange}
                 tooltip={t(dataFields.context_tree_distance_source_type.tooltip)}
             />
-            {(props.building.context_tree_distance_source_type == commonSourceTypes[0] ||
-                props.building.context_tree_distance_source_type == commonSourceTypes[1] ||
+            {(props.building.context_tree_distance_source_type == t(commonSourceTypes[0]) ||
+                props.building.context_tree_distance_source_type == t(commonSourceTypes[1]) ||
                 props.building.context_tree_distance_source_type == null) ? <></> :
                 <><MultiDataEntry
                     title={t(dataFields.context_tree_distance_source_links.title)}
@@ -230,8 +230,8 @@ const StreetContextView: React.FunctionComponent<CategoryViewProps> = (props) =>
                 onChange={props.onChange}
                 tooltip={t(dataFields.context_street_width_source_type.tooltip)}
             />
-            {(props.building.context_street_width_source_type == commonSourceTypes[0] ||
-                props.building.context_street_width_source_type == commonSourceTypes[1] ||
+            {(props.building.context_street_width_source_type == t(commonSourceTypes[0]) ||
+                props.building.context_street_width_source_type == t(commonSourceTypes[1]) ||
                 props.building.context_street_width_source_type == null) ? <></> :
                 <><MultiDataEntry
                     title={t(dataFields.context_street_width_source_links.title)}
@@ -277,8 +277,8 @@ const StreetContextView: React.FunctionComponent<CategoryViewProps> = (props) =>
                 onChange={props.onChange}
                 tooltip={t(dataFields.context_pavement_width_source_type.tooltip)}
             />
-            {(props.building.context_pavement_width_source_type == commonSourceTypes[0] ||
-                props.building.context_pavement_width_source_type == commonSourceTypes[1] ||
+            {(props.building.context_pavement_width_source_type == t(commonSourceTypes[0]) ||
+                props.building.context_pavement_width_source_type == t(commonSourceTypes[1]) ||
                 props.building.context_pavement_width_source_type == null) ? <></> :
                 <><MultiDataEntry
                     title={t(dataFields.context_pavement_width_source_links.title)}
@@ -324,8 +324,8 @@ const StreetContextView: React.FunctionComponent<CategoryViewProps> = (props) =>
                 onChange={props.onChange}
                 tooltip={t(dataFields.context_street_geometry_source_type.tooltip)}
             />
-            {(props.building.context_street_geometry_source_type == commonSourceTypes[0] ||
-                props.building.context_street_geometry_source_type == commonSourceTypes[1] ||
+            {(props.building.context_street_geometry_source_type == t(commonSourceTypes[0]) ||
+                props.building.context_street_geometry_source_type == t(commonSourceTypes[1]) ||
                 props.building.context_street_geometry_source_type == null) ? <></> :
                 <><MultiDataEntry
                     title={t(dataFields.context_street_geometry_source_links.title)}

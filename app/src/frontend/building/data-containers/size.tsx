@@ -97,7 +97,7 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     value={total_floors}
                     mode={props.mode}
                     copy={props.copy}
-                    tooltip="Total number of floors, calculated from other values."
+                    tooltip={t("Total number of floors, calculated from other values.")}
                     onChange={props.onChange}
                     step={1}
                     min={0}
@@ -113,8 +113,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_storeys_source_type.tooltip)}
                 />
-                {(props.building.size_storeys_source_type == commonSourceTypes[0] ||
-                    props.building.size_storeys_source_type == commonSourceTypes[1] ||
+                {(props.building.size_storeys_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_storeys_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_storeys_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_storeys_source_links.title)}
@@ -160,8 +160,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_height_apex_source_type.tooltip)}
                 />
-                {(props.building.size_height_apex_source_type == commonSourceTypes[0] ||
-                    props.building.size_height_apex_source_type == commonSourceTypes[1] ||
+                {(props.building.size_height_apex_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_height_apex_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_height_apex_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_height_apex_source_links.title)}
@@ -206,8 +206,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_height_eaves_source_type.tooltip)}
                 />
-                {(props.building.size_height_eaves_source_type == commonSourceTypes[0] ||
-                    props.building.size_height_eaves_source_type == commonSourceTypes[1] ||
+                {(props.building.size_height_eaves_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_height_eaves_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_height_eaves_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_height_eaves_source_links.title)}
@@ -271,8 +271,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_floor_area_source_type.tooltip)}
                 />
-                {(props.building.size_floor_area_source_type == commonSourceTypes[0] ||
-                    props.building.size_floor_area_source_type == commonSourceTypes[1] ||
+                {(props.building.size_floor_area_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_floor_area_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_floor_area_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_floor_area_source_links.title)}
@@ -318,8 +318,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_width_frontage_source_type.tooltip)}
                 />
-                {(props.building.size_width_frontage_source_type == commonSourceTypes[0] ||
-                    props.building.size_width_frontage_source_type == commonSourceTypes[1] ||
+                {(props.building.size_width_frontage_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_width_frontage_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_width_frontage_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_width_frontage_source_links.title)}
@@ -364,8 +364,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_plot_area_total_source_type.tooltip)}
                 />
-                {(props.building.size_plot_area_total_source_type == commonSourceTypes[0] ||
-                    props.building.size_plot_area_total_source_type == commonSourceTypes[1] ||
+                {(props.building.size_plot_area_total_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_plot_area_total_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_far_ratio_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_plot_area_total_source_links.title)}
@@ -411,8 +411,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_far_ratio_source_type.tooltip)}
                 />
-                {(props.building.size_far_ratio_source_type == commonSourceTypes[0] ||
-                    props.building.size_far_ratio_source_type == commonSourceTypes[1] ||
+                {(props.building.size_far_ratio_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_far_ratio_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_far_ratio_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_far_ratio_source_links.title)}
@@ -458,8 +458,8 @@ const SizeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     tooltip={t(dataFields.size_parcel_geometry_source_type.tooltip)}
                 />
-                {(props.building.size_parcel_geometry_source_type == commonSourceTypes[0] ||
-                    props.building.size_parcel_geometry_source_type == commonSourceTypes[1] ||
+                {(props.building.size_parcel_geometry_source_type == t(t(commonSourceTypes[0])) ||
+                    props.building.size_parcel_geometry_source_type == t(t(commonSourceTypes[1])) ||
                     props.building.size_parcel_geometry_source_type == null) ? <></> :
                     <><MultiDataEntry
                         title={t(dataFields.size_parcel_geometry_source_links.title)}

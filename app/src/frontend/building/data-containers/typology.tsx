@@ -49,14 +49,14 @@ const TypeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     slug=""
                     value=""
                     mode='view'
-                    tooltip="Coming Soon"
+                    tooltip={t("Coming Soon")}
                 />
                 <DataEntry
                     title="Source link"
                     slug=""
                     value=""
                     mode='view'
-                    tooltip="Coming Soon"
+                    tooltip={t("Coming Soon")}
                 />
                 <hr/>
                 <DataEntry
@@ -82,14 +82,14 @@ const TypeView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     slug=""
                     value=""
                     mode='view'
-                    tooltip="Coming Soon"
+                    tooltip={t("Coming Soon")}
                 />
                 <DataEntry
                     title="Source link"
                     slug=""
                     value=""
                     mode='view'
-                    tooltip="Coming Soon"
+                    tooltip={t("Coming Soon")}
                 />
             </DataEntryGroup>
             <DataEntryGroup name={t("Building typology and classification data")}>

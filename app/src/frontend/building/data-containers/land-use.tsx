@@ -70,8 +70,8 @@ const UseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         onChange={props.onChange}
                         tooltip={t(dataFields.is_domestic_source.tooltip)}
                     />
-                    {(props.building.is_domestic_source == commonSourceTypes[0] ||
-                        props.building.is_domestic_source == commonSourceTypes[1] ||
+                    {(props.building.is_domestic_source == t(t(commonSourceTypes[0])) ||
+                        props.building.is_domestic_source == t(t(commonSourceTypes[1])) ||
                         props.building.is_domestic_source == null) ? <></> :
                         <><MultiDataEntry
                             title={t(dataFields.is_domestic_links.title)}
@@ -98,7 +98,7 @@ const UseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         onChange={props.onChange}
                         confirmOnEnter={true}
                         tooltip={t(dataFields.current_landuse_group.tooltip)}
-                        placeholder="Type new land use group here"
+                        placeholder={t("Type new land use group here")}
                         copyable={true}
                         autofill={true}
                         showAllOptionsOnEmpty={true}
@@ -153,7 +153,7 @@ const UseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         title={t(dataFields.current_landuse_order.title)}
                         tooltip={t(dataFields.current_landuse_order.tooltip)}
                         slug="current_landuse_order"
-                        value={props.building.current_landuse_order}
+                        value={t(props.building.current_landuse_order)}
                         mode={props.mode}
                         disabled={true}
                         copy={props.copy}

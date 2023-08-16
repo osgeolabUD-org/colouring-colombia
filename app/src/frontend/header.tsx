@@ -6,7 +6,7 @@ import './header.css';
 import { Logo } from './components/logo';
 import { WithSeparator } from './components/with-separator';
 import { useAuth } from './auth-context';
-
+import {t} from'i18next';
 import { CCConfig } from '../cc-config';
 let config: CCConfig = require('../cc-config.json')
 
@@ -27,17 +27,18 @@ function getCurrentMenuLinks(username: string): MenuLink[][] {
                     [
                         {
                             to: "/my-account.html",
-                            text: `Account (${username})`
+                            text: `${t('Account')} (${username})`
+
                         }
                     ] :
                     [
                         {
                             to: "/login.html",
-                            text: "Log in"
+                            text: t("Log in")
                         },
                         {
                             to: "/sign-up.html",
-                            text: "Sign up"
+                            text: t("Sign up")
                         }
                     ]
             )
@@ -45,68 +46,68 @@ function getCurrentMenuLinks(username: string): MenuLink[][] {
         [
             {
                 to: "/view/categories",
-                text: "View Maps"
+                text: t("View Maps")
             },
             {
                 to: "/edit/categories",
-                text: "Edit Maps"
+                text: t("Edit Maps")
             },
             {
                 to: "/data-extracts.html",
-                text: "Download data"
+                text: t("Download data")
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki",
-                text: "Colouring Cities Open Manual/Wiki",
+                text: t("Colouring Cities Open Manual/Wiki"),
                 disabled: false,
                 external: true
             },
             {
                 to: config.githubURL,
-                text: "Open code",
+                text: t("Open code"),
                 external: true
             },
             {
                 to: "/showcase.html",
-                text: "Case Study Showcase",
+                text: t("Case Study Showcase"),
                 disabled: true,
             },
         ],
         [
             {
                 to: "https://github.com/colouring-cities/manual/wiki/A.-What-is-the-CCRP%3F",
-                text: "About the Colouring Cities Research Programme",
+                text: t("About the Colouring Cities Research Programme"),
                 external: true
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/A2.-How-to%3F-Guides",
-                text: "How to Use",
+                text: t("How to Use"),
                 external: true
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/I.--DATA",
-                text: "Data Categories",
+                text: t("Data Categories"),
                 external: true
             },
             {
                 to: "https://pages.colouring.london/whoisinvolved",
-                text: "Who's Involved?",
+                text: t("Who's Involved?"),
                 external: true
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/C.-Ethical-framework-and-ethics-policies",
-                text: "Ethical Framework",
+                text: t("Ethical Framework"),
                 external: true
             }
         ],
         [
             {
                 to: "/leaderboard.html",
-                text: "Top Contributors"
+                text: t("Top Contributors")
             },
             {
                 to: config.githubURL+"/discussions",
-                text: "Discussion Forum",
+                text: t("Discussion Forum"),
                 external: true
             },
             // {
@@ -118,42 +119,42 @@ function getCurrentMenuLinks(username: string): MenuLink[][] {
         [
             {
                 to: "https://github.com/colouring-cities/manual/wiki/C1.-Protocols,-codes-of-conduct-&-data-sharing-agreements#ccrp-contributor-privacy-statement",
-                text: "Privacy Policy",
+                text: t("Privacy Policy"),
                 external: true
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/C1.-Protocols,-codes-of-conduct-&-data-sharing-agreements#ccrp-contributor--data-user-data-accuracy--ethical-use-agreement",
-                text: "Contributor Agreement",
+                text: t("Contributor Agreement"),
                 external: true
             },
             {
                 to: "/code-of-conduct.html",
-                text: "Code of Conduct"
+                text: t("Code of Conduct")
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/C1.-Protocols,-codes-of-conduct-&-data-sharing-agreements#ccrp-contributor--data-user-data-accuracy--ethical-use-agreement",
-                text: "Data Accuracy and Use Agreement",
+                text: t("Data Accuracy and Use Agreement"),
                 external: true
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/C1.-Protocols,-codes-of-conduct-&-data-sharing-agreements#ccrp-equality-diversity-and-inclusion-policy",
-                text: "Equality, Diversity and Inclusion",
+                text: t("Equality, Diversity and Inclusion"),
                 external: true
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/C1.-Protocols,-codes-of-conduct-&-data-sharing-agreements#ccrp-protocols-for-international-academic-partners",
-                text: "CCRP Academic Partner Protocols",
+                text: t("CCRP Academic Partner Protocols"),
                 external: true
             },
             {
                 to: "/ordnance-survey-uprn.html",
-                text: "Ordnance Survey terms of UPRN usage"
+                text: t("Ordnance Survey terms of UPRN usage")
             },
         ],
         [
             {
                 to: "/contact.html",
-                text: "Contact"
+                text: t("Contact")
             },
         ],
     ];
