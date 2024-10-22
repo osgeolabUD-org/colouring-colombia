@@ -21,6 +21,8 @@ const DATASOURCE_CONFIG = {
     'type': 'postgis'
 };
 
+console.log(DATASOURCE_CONFIG);
+
 // register datasource adapters for mapnik database connection
 if (mapnik.register_default_input_plugins) {
     mapnik.register_default_input_plugins();
@@ -38,9 +40,15 @@ async function renderDataSourceTile(
     const bbox = getBbox(z, x, y);
 
     const tileSize = TILE_SIZE * scale;
-    let map = new mapnik.Map(tileSize, tileSize, PROJ4_STRING);
-    map.bufferSize = TILE_BUFFER_SIZE;
-    const layer = new mapnik.Layer('tile', PROJ4_STRING);
+    // Create a map object with the correct width and height arguments
+    let map = new mapnik.Map(tileSize, tileSize); 
+
+    // Set the projection using the srs property
+    map.srs = PROJ4_STRING;
+    //let map = new mapnik.Map(tileSize, tileSize, PROJ4_STRING);
+    (map as any).bufferSize = TILE_BUFFER_SIZE;
+    const layer = new mapnik.Layer('tile');
+    layer.srs= PROJ4_STRING;
 
     const dataSourceConfig = getTableDefinitionFn(tileset);
     const dataSourceVariables = getVariablesFn(tileset, dataParams);
@@ -57,7 +65,7 @@ async function renderDataSourceTile(
     map = await promisify(map.load.bind(map))(stylePath, { strict: true });
 
     map.add_layer(layer);
-    const im = new mapnik.Image(map.width, map.height);
+    const im = new mapnik.Image(tileSize, tileSize);    
     map.extent = bbox;
     const rendered = await promisify(map.render.bind(map))(im, { variables: vars});
 

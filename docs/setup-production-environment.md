@@ -132,6 +132,7 @@ Instalar los paquetes Node requeridos como se designa en `package.json`
 ***
 
 ### Configurar Postgresql
+
 ```bash
 sudo service postgresql start
 sudo locale-gen en_US.UTF-8
@@ -143,6 +144,11 @@ Para producción no queremos usar nuestro nombre de usuario de Ubuntu como el no
 
 `sudo sed -i 's/^local.*all.*all.*peer$/local   all             all                                     md5/' /etc/postgresql/14/main/pg_hba.conf`
 
+A partir de la versión 14, el algoritmo hash predeterminado de las claves en postgresql es scram-sha-256. No obstante, la biblioteca mapnik que usa esta versión de colouring solo soporta MD5. Para sobrellevar esto se debe modificar el archivo postgresql.conf agregando la línea:
+
+```bash
+password_encryption = md5 
+```
 
 Reiniciar Postgres para que los cambios de configuración surtan efecto
 

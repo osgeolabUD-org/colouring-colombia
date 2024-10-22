@@ -15,7 +15,7 @@ def arcgis_to_geojson(arcgis):
 def create_table(option):
 
     if option == True:
-        engine = create_engine('postgresql://colouring:colouringud@localhost:5432/colouringdb')
+        engine = create_engine('postgresql://colouring:colouringpw@localhost:5432/colouringdb')
         
         metadata = MetaData()
 
@@ -37,7 +37,7 @@ def create_table(option):
         metadata.create_all(engine)
 
 # Create PostgreSQL connection
-engine = create_engine('postgresql://colouring:colouringud@localhost:5432/colouringdb')
+engine = create_engine('postgresql://colouring:colouringpw@localhost:5432/colouringdb')
 metadata = MetaData()
 
 
