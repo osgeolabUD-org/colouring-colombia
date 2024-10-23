@@ -308,3 +308,13 @@ Finalmente, para lanzar la aplicación
 
 Tu aplicación debería estar en funcionamiento y estar disponible en tu dominio.
 
+## Ambiente de desarrollo
+
+Se recomienda un ambiente de desarrollo con las siguientes herramientas:
+
+* Visual studio Code
+  * Extensión python	
+  * Extensión gitlens
+  * Extensión react
+* PgAdmin4
+
