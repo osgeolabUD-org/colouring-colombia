@@ -35,3 +35,6 @@ TODO
 
 # VM
 .vagrant
+
+# venv
+myenv/

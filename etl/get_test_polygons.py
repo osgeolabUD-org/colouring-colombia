@@ -7,57 +7,59 @@ Then run:
 - create_buildings.sh (creating empty building records for each geometry)
 """
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import subprocess
+import osmnx as ox
 
-import osmnx
+# Configure logging/caching
+ox.config(log_console=True, use_cache=True)
 
-# configure logging/caching
-osmnx.config(log_console=True, use_cache=True)
-
-# configure the image display
+# Configure the image display
 size = 256
 
-# load buildings from about 1.5km² around UCL
-point = (51.524498, -0.133874)
+# Load buildings from about 1.5km² around UCL
+point = (4.714514667535731, -74.05960852749604)
 dist = 612
-gdf = osmnx.footprints_from_point(point=point, dist=dist)
 
-# preview image
-gdf_proj = osmnx.projection.project_gdf(gdf, to_crs={'init': 'epsg:3857'})
-gdf_proj = gdf_proj[gdf_proj.geometry.apply(lambda g: g.geom_type != 'MultiPolygon')]  # noqa
+# Define the tags for buildings
+tags = {'building': True}
 
-fig, ax = osmnx.plot_footprints(gdf_proj, bgcolor='#333333',
-                                color='w', figsize=(4, 4),
-                                save=True, show=False, close=True,
-                                filename='test_buildings_preview', dpi=600)
+# Fetch geometries (building footprints) using the tags
+gdf = ox.geometries_from_point(point, tags, dist=dist)
 
-# save
+# Project the geometries to EPSG:3857
+gdf_proj = ox.project_gdf(gdf, to_crs='EPSG:3857')
+
+# Filter out multipolygons if needed
+gdf_proj = gdf_proj[gdf_proj.geometry.apply(lambda g: g.geom_type != 'MultiPolygon')]
+
+# Plot the footprints
+fig, ax = ox.plot_graph(ox.graph_from_place("Bogotá, Colombia"),
+                        bgcolor='#333333', node_color='w',
+                        edge_color='w', show=False, close=False)
+
+# Save the plot manually
+fig.savefig('test_buildings_preview.png', dpi=600, bbox_inches='tight', facecolor='#333333')
+
+# Reset the index and add an 'fid' column
+gdf_proj = gdf_proj.reset_index(drop=True)
+gdf_proj['fid'] = gdf_proj.index
+
+# Create a GeoDataFrame with only 'fid' and 'geometry' columns
+gdf_to_save = gdf_proj[['fid', 'geometry']]
+
+# Save the GeoDataFrame to GeoJSON
 test_dir = os.path.dirname(__file__)
 test_data_geojson = str(os.path.join(test_dir, 'test_buildings.geojson'))
 subprocess.run(["rm", test_data_geojson])
 
-gdf_to_save = gdf_proj.reset_index(
-)[
-    ['index', 'geometry']
-]
+gdf_to_save.to_file(test_data_geojson, driver='GeoJSON')
 
-gdf_to_save.rename(
-    columns={'index': 'fid'}
-).to_file(
-    test_data_geojson, driver='GeoJSON'
-)
-
-# convert to CSV
+# Convert to CSV
 test_data_csv = str(os.path.join(test_dir, 'test_buildings.3857.csv'))
 subprocess.run(["rm", test_data_csv])
-subprocess.run(
-                ["ogr2ogr", "-f", "CSV", test_data_csv,
-                 test_data_geojson, "-lco", "GEOMETRY=AS_WKT"]
-)
+subprocess.run(["ogr2ogr", "-f", "CSV", test_data_csv, test_data_geojson, "-lco", "GEOMETRY=AS_WKT"])
 
-# add SRID for ease of loading to PostgreSQL
-subprocess.run(
-                ["sed", "-i", "s/^\"POLYGON/\"SRID=3857;POLYGON/",
-                 test_data_csv]
-)
+# Add SRID for ease of loading to PostgreSQL
+subprocess.run(["sed", "-i", "s/^\"POLYGON/\"SRID=3857;POLYGON/", test_data_csv])

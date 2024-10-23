@@ -15,7 +15,7 @@ def arcgis_to_geojson(arcgis):
 def create_table(option):   
 
     if option == True:
-        engine = create_engine('postgresql://colouring:colouringud@localhost:5432/colouringdb')
+        engine = create_engine('postgresql://colouring:colouringpw@localhost:5432/colouringdb')
 
         metadata = MetaData()
 
@@ -38,7 +38,7 @@ def create_table(option):
         metadata.create_all(engine)
 
 # Create PostgreSQL connection
-engine = create_engine('postgresql://colouring:colouringud@localhost:5432/colouringdb')
+engine = create_engine('postgresql://colouring:colouringpw@localhost:5432/colouringdb')
 
 metadata = MetaData()
 with engine.connect() as connection:
@@ -50,8 +50,11 @@ with engine.connect() as connection:
         transformer = Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True)
 
         # Transform the coordinates of the bounding box to the EPSG:3857 projection that the IDECA API uses
-        xmin, ymin = transformer.transform(-74.08092070774241, 4.602247704685809)
-        xmax, ymax = transformer.transform(-74.07054513084972, 4.5936728546784025)
+        xmin, ymin = transformer.transform(-74.06364481041642, 4.716539954702561)
+        xmax, ymax = transformer.transform(-74.05902068226621, 4.712081165931621)
+
+         
+        
 
         # Set up the query parameters
         params = {
